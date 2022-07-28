@@ -1,0 +1,149 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "be2a31a6-134a-482d-a926-deef3349ffca",
+  "name": "EsrpRelease",
+  "friendlyName": "ESRP Release",
+  "description": "Microsoft Internal tool for submitting releases to ESRP Release",
+  "helpMarkDown": "Version: 0.0.1 [More Information](https://aka.ms/esrp.scantask)<Marketplace Link to the task>",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "Microsoft Corporation.",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 13
+  },
+  "instanceNameFormat": "ESRP Release",
+  "minimumAgentVersion": "0.0.1",
+  "groups": [
+    {
+      "name": "advancedDebug",
+      "displayName": "Advanced Debug",
+      "isExpanded": false
+    }
+  ],
+  "inputs": [
+    {
+      "name": "ConnectedServiceName",
+      "type": "connectedService:Release",
+      "label": "Connection Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Input Service connection to authenticate to azure key vault for fetching gateway auth & signing cert."
+    },
+    {
+      "name": "Intent",
+      "type": "pickList",
+      "label": "Intent",
+      "defaultValue": "PackageDistribution",
+      "required": true,
+      "helpMarkDown": "Please enter your intent for this release submission, Ex : PackageDistribution (For publishing packages to third party package managers).",
+      "options": {
+        "PackageDistribution": "PackageDistribution"
+      }
+    },
+    {
+      "name": "ContentType",
+      "type": "pickList",
+      "label": "Content Type",
+      "defaultValue": "Maven",
+      "required": true,
+      "helpMarkDown": "Select Workflow ReleaseContentType to be used to publish to specific Package Manager.",
+      "options": {
+        "Maven": "Maven"
+      }
+    },
+    {
+      "name": "PackageLocation",
+      "type": "filePath",
+      "label": "Package files location",
+      "defaultValue": "a:/D/Release/filefolder",
+      "required": true,
+      "helpMarkDown": "location of the input files."
+    },
+    {
+      "name": "Owners",
+      "type": "multiLine",
+      "label": "Owners",
+      "defaultValue": "xyz@microsoft.com",
+      "required": true,
+      "helpMarkDown": "Owners of the Release, It should be in xyz@microsoft.com format and must be a valid user/account on the Microsoft AAD. Refer : https://microsoft.sharepoint.com/teams/prss/esrp/info/ESRP%20Info%20Wiki/Submission%20Request%20Schema.aspx , Want to check if it's valid -> goto -> portal.azure.com -> AAD -> Users/Groups -> Search it"
+    },
+    {
+      "name": "Approvers",
+      "type": "multiLine",
+      "label": "Approvers",
+      "defaultValue": "abc@microsoft.com",
+      "required": true,
+      "helpMarkDown": "Release will be auto approved using the provided approver email ids. Owner should be different from approver. It should be in xyz@microsoft.com format and must be a valid user/account on the Microsoft AAD. Refer : https://microsoft.sharepoint.com/teams/prss/esrp/info/ESRP%20Info%20Wiki/Submission%20Request%20Schema.aspx , Want to check if it's valid -> goto -> portal.azure.com -> AAD -> Users/Groups -> Search it"
+    },
+    {
+      "name": "ServiceEndpointUrl",
+      "type": "string",
+      "label": "API Endpoint Url",
+      "defaultValue": "https://api.esrp.microsoft.com",
+      "required": true,
+      "helpMarkDown": "This is an auto populated field, which is used to submit request to ESRP Release Gateway.",
+      "groupName": "advancedDebug"
+    },
+    {
+      "name": "MainPublisher",
+      "type": "string",
+      "label": "Main Publisher",
+      "defaultValue": "ESRPRELPACMAN",
+      "required": true,
+      "helpMarkDown": "This is an auto populated field based on the client id <-> main publisher mapping.",
+      "groupName": "advancedDebug"
+    },
+    {
+      "name": "DomainTenantId",
+      "type": "pickList",
+      "label": "Domain TenantId",
+      "defaultValue": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "required": true,
+      "helpMarkDown": "Please select your domain's Tenant Id.",
+      "options": {
+        "975f013f-7f24-47e8-a7d3-abc4752bf346": "975f013f-7f24-47e8-a7d3-abc4752bf346 (PMETenantId)",
+        "72f988bf-86f1-41af-91ab-2d7cd011db47": "72f988bf-86f1-41af-91ab-2d7cd011db47 (MicrosoftTenantId)",
+        "33e01921-4d64-4f8c-a055-5bdaffd5e33d": "33e01921-4d64-4f8c-a055-5bdaffd5e33d (AMETenantId)",
+        "cdc5aeea-15c5-4db6-b079-fcadd2505dc2": "cdc5aeea-15c5-4db6-b079-fcadd2505dc2 (TorusTenantId)"
+      },
+      "groupName": "advancedDebug"
+    },
+    {
+      "name": "ContentOrigin",
+      "type": "string",
+      "label": "Content Origin",
+      "defaultValue": "azeus",
+      "required": false,
+      "helpMarkDown": "Please enter your content origin of the Release (A value is populated by default).",
+      "groupName": "advancedDebug"
+    },
+    {
+      "name": "ProductState",
+      "type": "string",
+      "label": "Product State",
+      "defaultValue": "Current",
+      "required": false,
+      "helpMarkDown": "Please enter your product state out of the options (New, Existing, Sustain).",
+      "groupName": "advancedDebug"
+    },
+    {
+      "name": "Audience",
+      "type": "string",
+      "label": "Audience",
+      "defaultValue": "Workflow.A_S_AV_PackageManager",
+      "required": false,
+      "helpMarkDown": "This is an auto populated field based on the content Type input field.",
+      "groupName": "advancedDebug"
+    }
+  ],
+  "execution": {
+    "Node10": {
+      "target": "action.js"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+
+// Run these commands in cmd/powershell before local testing. 
+// It will set up variables to be consumed by the task just like it will receive inputs in production pipeline.
+
+//Common Config
+
+$env:INPUT_Approvers='shmallip@microsoft.com,skonidena@microsoft.com'
+$env:INPUT_Owners='arugupta@microsoft.com'
+$env:INPUT_MainPublisher='ESRPRELTEST'
+$env:INPUT_ContentOrigin='azeus'
+$env:INPUT_ContentType='Maven'
+$env:INPUT_Intent='PackageDistribution'
+$env:INPUT_ProductState='new'
+$env:INPUT_MavenCheck='true'
+$env:INPUT_PackageLocation='C:\Users\Administrator\Desktop\Repo-action\Task\ValidArtefacts'
+$env:INPUT_CONNECTEDSERVICENAME='testReleaseServiceConnection'
+$env:INPUT_USERNAME='a2d9fe71-6b4b-4e0f-ac6e-a5e1d005bbf7'
+$env:INPUT_Audience='Workflow.A_S_AV_PackageManager'
+$env:INPUT_KvTenantId='33e01921-4d64-4f8c-a055-5bdaffd5e33d'
+$env:INPUT_ENVIRONMENT='Developer'
+$env:INPUT_DomainTenantId='72f988bf-86f1-41af-91ab-2d7cd011db47'
+$env:INPUT_KvSecret='' // Fill it to test secret based auth to Key Vault
+
+// Prod Config
+
+$env:INPUT_ServiceEndpointUrl='https://api.esrp.microsoft.com'
+$env:INPUT_KvAuthCertName='esrpreleasetesttenantprod'
+$env:INPUT_KvSignCertName='1396eb29-6efc-4ef5-bb98-7934aed3b9e3'
+$env:INPUT_KvClientId='430dfa0a-7d9b-4393-a4bd-6b7292f71501'
+$env:INPUT_KvKeyVaultName='esrprelease-test-prod'
+
+// PPE Config
+
+$env:INPUT_ServiceEndpointUrl='https://ppe.api.esrp.microsoft.com'
+$env:INPUT_KvAuthCertName='esrpreleasetesttenantppe2'
+$env:INPUT_KvSignCertName='2460c5ef-b7d2-4f64-be14-bc03d18aa556'
+$env:INPUT_KvClientId='430dfa0a-7d9b-4393-a4bd-6b7292f71501'
+$env:INPUT_KvKeyVaultName='esrprelease-ppe'
+
+// INT Config
+
+$env:INPUT_ServiceEndpointUrl='https://ess-gateway-int.trafficmanager.net'
+$env:INPUT_KvAuthCertName='esrpreleasetesttenantint'
+$env:INPUT_KvSignCertName='7421bc0c-acb2-409c-9a37-e0ffb9c808c4'
+$env:INPUT_KvClientId='430dfa0a-7d9b-4393-a4bd-6b7292f71501'
+$env:INPUT_KvKeyVaultName='esrprelease-int'
+
+- For task in Release definition use - "$(Release.Deployment.RequestedForEmail)" as automatic value addition in Owner/Approval fields
+- For task in Build definition use - "$(Build.RequestedForEmail)" as automatic value addition in Owner/Approval fields

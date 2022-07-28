@@ -1,0 +1,6 @@
+{
+    "ReositoryUrl":{
+        "com.test.prss.esrp.pacman":"https://oss.sonatype.org/content/repositories/no-sync-releases/",
+        "com.test.prss.esrp.pacman.test":"https://oss.sonatype.org/content/repositories/no-sync-releases/"
+    }
+}
