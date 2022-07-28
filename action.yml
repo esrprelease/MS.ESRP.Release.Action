@@ -1,0 +1,63 @@
+name: "ESRP Release Action"
+description: "Microsoft Internal tool for submitting releases to ESRP Release"
+branding:
+  icon: 'book-open'  
+  color: 'Red'
+inputs: 
+  ConnectedServiceName:
+    description: "Input Service connection to authenticate to azure key vault for fetching gateway auth & signing cert."
+    required: true
+    default: ""
+  Intent:
+    description: "Please enter your intent for this release submission, Ex : PackageDistribution (For publishing packages to third party package managers)."
+    required: true
+    default: "PackageDistribution"
+  ContentType:
+    description: "Select Workflow ReleaseContentType to be used to publish to specific Package Manager."
+    required: true
+    default: "Maven"
+  PackageLocation:
+    description: "location of the input files."
+    required: true
+    default: "a:/D/Release/filefolder"
+  Owners:
+    description: "Owners of the Release, It should be in xyz@microsoft.com format and must be a valid user/account on the Microsoft AAD. Refer : https://microsoft.sharepoint.com/teams/prss/esrp/info/ESRP%20Info%20Wiki/Submission%20Request%20Schema.aspx , Want to check if it's valid -> goto -> portal.azure.com -> AAD -> Users/Groups -> Search it"
+    required: true
+    default: "xyz@microsoft.com"
+  Approvers:
+    description: "Release will be auto approved using the provided approver email ids. Owner should be different from approver. It should be in xyz@microsoft.com format and must be a valid user/account on the Microsoft AAD. Refer : https://microsoft.sharepoint.com/teams/prss/esrp/info/ESRP%20Info%20Wiki/Submission%20Request%20Schema.aspx , Want to check if it's valid -> goto -> portal.azure.com -> AAD -> Users/Groups -> Search it"
+    required: true
+    default: "abc@microsoft.com"
+  ServiceEndpointUrl:
+    description: "This is an auto populated field, which is used to submit request to ESRP Release Gateway."
+    required: true
+    default: "https://api.esrp.microsoft.com"
+  MainPublisher:
+    description: "This is an auto populated field based on the client id <-> main publisher mapping."
+    required: true
+    default: "ESRPRELPACMAN"
+  DomainTenantId:
+    description: "Please select your domain's Tenant Id."
+    required: true
+    default: "72f988bf-86f1-41af-91ab-2d7cd011db47"
+  ContentOrigin:
+    description:  "Please enter your content origin of the Release (A value is populated by default)."
+    required: true
+    default: "azeus"
+  ProductState:
+    description: "Please enter your product state out of the options (New, Existing, Sustain)."
+    required: true
+    default: "Current"
+  Audience:
+    description: "This is an auto populated field based on the content Type input field."
+    required: true
+    default: "Workflow.A_S_AV_PackageManager"
+  MavenCheck:
+    description: "For extra polling on Maven to validate the package"
+    type: boolean
+    required: true
+    default: "false"
+  
+runs:
+  using: 'node16'
+  main: 'Task/public/action.js'
