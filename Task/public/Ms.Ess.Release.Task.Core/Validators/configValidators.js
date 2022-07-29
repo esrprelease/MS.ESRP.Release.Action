@@ -19,10 +19,6 @@ class Validator {
         return __awaiter(this, void 0, void 0, function* () {
             let valid = true;
             var aggregatedException = new bluebird_1.AggregateError();
-            if (config.ConnectedServiceName == undefined) {
-                valid = false;
-                aggregatedException.push(new Error(configKeys_1.ConfigKeys.ConnectedServiceName + exceptionMessages_1.ExceptionMessages.IsNull));
-            }
             if (config.KVIdentityConfig == undefined) {
                 valid = false;
                 aggregatedException.push(new Error(exceptionMessages_1.ExceptionMessages.KVConfigNull));

@@ -12,7 +12,7 @@ $env:INPUT_ContentType='Maven'
 $env:INPUT_Intent='PackageDistribution'
 $env:INPUT_ProductState='new'
 $env:INPUT_MavenCheck='true'
-$env:INPUT_PackageLocation='C:\Users\Administrator\Desktop\Repo-action\Task\ValidArtefacts'
+$env:INPUT_PackageLocation='C:\MS\MS.ESRP.Release.Action\Task\ValidArtefacts'
 $env:INPUT_CONNECTEDSERVICENAME='testReleaseServiceConnection'
 $env:INPUT_USERNAME='a2d9fe71-6b4b-4e0f-ac6e-a5e1d005bbf7'
 $env:INPUT_Audience='Workflow.A_S_AV_PackageManager'
@@ -20,6 +20,7 @@ $env:INPUT_KvTenantId='33e01921-4d64-4f8c-a055-5bdaffd5e33d'
 $env:INPUT_ENVIRONMENT='Developer'
 $env:INPUT_DomainTenantId='72f988bf-86f1-41af-91ab-2d7cd011db47'
 $env:INPUT_KvSecret='' // Fill it to test secret based auth to Key Vault
+74cd0b2a-8473-475e-9bfd-445ec0847a84
 
 // Prod Config
 

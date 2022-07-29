@@ -4,10 +4,6 @@ branding:
   icon: 'book-open'  
   color: 'Red'
 inputs: 
-  ConnectedServiceName:
-    description: "Input Service connection to authenticate to azure key vault for fetching gateway auth & signing cert."
-    required: true
-    default: ""
   Intent:
     description: "Please enter your intent for this release submission, Ex : PackageDistribution (For publishing packages to third party package managers)."
     required: true

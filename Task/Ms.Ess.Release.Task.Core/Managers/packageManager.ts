@@ -86,6 +86,7 @@ export class PackageManager{
 
         let remoteCount:number = Constant.InitialCountZero
         let matchCount:number = Constant.InitialCountZero
+        var arr:string[] =[]
 
         let packageLocation = this.config?.PackageLocation
         const readDirMain = await fs.promises.readdir(packageLocation!)
@@ -121,9 +122,14 @@ export class PackageManager{
                         }
 
                         else{
-                            console.log(Constant.HashNotEqual + localFileName + '\n')
-                            if (remoteCount === Constant.TotalFilesInDirectory) {
-                                console.log(Constant.DeployedDiffContent)
+                            try{
+                                arr.push('\n'+localFileName)
+                                if (remoteCount === Constant.TotalFilesInDirectory) {
+                                    console.log(Constant.HashNotEqual + arr + '\n')
+                                    console.log(Constant.DeployedDiffContent)
+                                }
+                            }catch(error){
+                                throw error
                             }
                         }   
                     }

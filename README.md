@@ -87,7 +87,6 @@ Select “Add Secret” to create the secret.
 - The assumption here is that you have most of the build defined and are simply adding the package release step​ into your workflow.    
 - In your yml file write the following input parameters under  `with: `. 
 - Search or scroll down to select the ESRP Package release task   
-* `ConnectedServiceName` : value define that will be recognizable to you.
 * `Intent` - Intent for using this task. Ex: PackageDistribution.
 * `ContentType` – type of content in the payload files. Ex: Maven, NuGet, etc. 
 * `PackageLocation` – location where the package files exist. 
@@ -103,15 +102,6 @@ Select “Add Secret” to create the secret.
  
 
 ``` yml 
-name: name your workflow
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -126,11 +116,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
     
-      - name: Test Action-Solution
-        uses: poojapatidar21/Test-Action-Solution@test-1-2
-
+      - name: ESRP Release Action
+        uses: esrprelease/MS.ESRP.Release.Action@v1.0.0
         with: 
-            ConnectedServiceName: "example"
             Intent: "PackageDistribution"
             ContentType: "Maven"
             PackageLocation: "target/package"

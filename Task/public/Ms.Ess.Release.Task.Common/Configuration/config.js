@@ -4,7 +4,6 @@ exports.Config = void 0;
 const uuid_1 = require("uuid");
 class Config {
     constructor() {
-        this.ConnectedServiceName = undefined;
         this.KVIdentityConfig = undefined;
         this.ClientId = undefined;
         this.AuthPublicCert = undefined;

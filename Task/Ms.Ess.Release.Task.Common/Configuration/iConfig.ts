@@ -2,7 +2,6 @@ import { IKVIdentityConfig } from './iKeyVaultIdentityConfig'
 
 export interface IConfig {
     
-    ConnectedServiceName?: string 
     KVIdentityConfig?: IKVIdentityConfig 
     ClientId?: string 
     AuthPublicCert?: string 

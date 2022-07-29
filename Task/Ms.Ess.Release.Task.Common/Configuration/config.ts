@@ -3,7 +3,6 @@ import { IKVIdentityConfig } from "./iKeyVaultIdentityConfig"
 import { v4 as uuidv4 } from 'uuid' 
 
 export class Config implements IConfig{
-    ConnectedServiceName?: string 
     KVIdentityConfig?: IKVIdentityConfig 
     ClientId?: string 
     AuthPublicCert?: string 
@@ -30,7 +29,6 @@ export class Config implements IConfig{
     MavenCheck?: string 
 
     constructor(){
-        this.ConnectedServiceName = undefined 
         this.KVIdentityConfig = undefined 
         this.ClientId = undefined 
         this.AuthPublicCert = undefined 

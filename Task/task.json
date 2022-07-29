@@ -27,14 +27,6 @@
   ],
   "inputs": [
     {
-      "name": "ConnectedServiceName",
-      "type": "connectedService:Release",
-      "label": "Connection Name",
-      "defaultValue": "",
-      "required": true,
-      "helpMarkDown": "Input Service connection to authenticate to azure key vault for fetching gateway auth & signing cert."
-    },
-    {
       "name": "Intent",
       "type": "pickList",
       "label": "Intent",

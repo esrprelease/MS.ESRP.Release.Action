@@ -1,6 +1,5 @@
 export const ConfigKeys = {
 
-    ConnectedServiceName: "ConnectedServiceName",
     Username: "username",
     Password: "password",
     TenantId: "tenantid",

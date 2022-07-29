@@ -67,11 +67,11 @@ exports.Constant = {
     BaseUrl: "https://oss.sonatype.org/content/repositories/no-sync-releases",
     RepositoryUrl: "https://oss.sonatype.org/content/repositories/no-sync-releases/",
     UrlCheck: "Repository URL must be of a SonaType Nexus feed.",
-    SuccessDeployed: "Package deployed with same content and it is ready to use. \n",
+    SuccessDeployed: "Package deployed with same content and it is ready to be consumed. \n",
     PackageUrl: "You can visit and check deployed package - ",
     DeployedDiffContent: "Package already deployed, but with different content. \n",
     TotalFilesInDirectory: 16,
     HttpResponseCode: "Http reponse code:",
     InitialCountZero: 0,
-    HashNotEqual: "Remote hash is not equal to local hash for file - "
+    HashNotEqual: "Remote hash is not equal to local hash for files - "
 };

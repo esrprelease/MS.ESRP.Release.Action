@@ -89,6 +89,7 @@ class PackageManager {
             const packageUrl = `${baseUrl}/${(_a = PackageDetail.GroupID) === null || _a === void 0 ? void 0 : _a.replaceAll('.', '/')}/${PackageDetail.ArtifactID}/${PackageDetail.Version}`;
             let remoteCount = constants_1.Constant.InitialCountZero;
             let matchCount = constants_1.Constant.InitialCountZero;
+            var arr = [];
             let packageLocation = (_b = this.config) === null || _b === void 0 ? void 0 : _b.PackageLocation;
             const readDirMain = yield fs_1.default.promises.readdir(packageLocation);
             readDirMain.forEach(artifact => {
@@ -114,9 +115,15 @@ class PackageManager {
                                 }
                             }
                             else {
-                                console.log(constants_1.Constant.HashNotEqual + localFileName + '\n');
-                                if (remoteCount === constants_1.Constant.TotalFilesInDirectory) {
-                                    console.log(constants_1.Constant.DeployedDiffContent);
+                                try {
+                                    arr.push('\n' + localFileName);
+                                    if (remoteCount === constants_1.Constant.TotalFilesInDirectory) {
+                                        console.log(constants_1.Constant.HashNotEqual + arr + '\n');
+                                        console.log(constants_1.Constant.DeployedDiffContent);
+                                    }
+                                }
+                                catch (error) {
+                                    throw error;
                                 }
                             }
                         }

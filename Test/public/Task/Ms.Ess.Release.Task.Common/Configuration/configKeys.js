@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigKeys = void 0;
 exports.ConfigKeys = {
-    ConnectedServiceName: "ConnectedServiceName",
     Username: "username",
     Password: "password",
     TenantId: "tenantid",

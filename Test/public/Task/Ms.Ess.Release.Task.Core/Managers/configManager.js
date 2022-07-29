@@ -76,10 +76,6 @@ class ConfigManager {
         this.config.Approvers = core.getInput(configKeys_1.ConfigKeys.Approvers);
         this.config.StatusPollingInterval = constants_1.Constant.DelayBetweenEveryGetStatus;
         core.addPath(path_1.default.join(__dirname, constants_1.Constant.TaskJsonDistanceFromManagerFolder));
-        this.config.ConnectedServiceName = core.getInput(configKeys_1.ConfigKeys.ConnectedServiceName);
-        if (this.config.ConnectedServiceName == constants_1.Constant.Bad || this.config.ConnectedServiceName == undefined) {
-            throw new Error(exceptionMessages_1.ExceptionMessages.BadInputGivenFor + (configKeys_1.ConfigKeys === null || configKeys_1.ConfigKeys === void 0 ? void 0 : configKeys_1.ConfigKeys.ConnectedServiceName));
-        }
     }
     setKVIdentityConfig() {
         this.config.KVIdentityConfig = new keyVaultIndentityConfig_1.KVIdentityConfig();

@@ -49,12 +49,8 @@ export class ConfigManager{
         this.config.Approvers = core.getInput(ConfigKeys.Approvers) 
         this.config.StatusPollingInterval = Constant.DelayBetweenEveryGetStatus 
         core.addPath(path.join(__dirname, Constant.TaskJsonDistanceFromManagerFolder)) 
-        this.config.ConnectedServiceName = core.getInput(ConfigKeys.ConnectedServiceName) 
-
-        if (this.config.ConnectedServiceName == Constant.Bad || this.config.ConnectedServiceName == undefined) {
-
-            throw new Error(ExceptionMessages.BadInputGivenFor + ConfigKeys?.ConnectedServiceName) 
-        } 
+        
+         
     }
 
     private setKVIdentityConfig(){

@@ -11,11 +11,7 @@ export class Validator {
 
         let valid = true 
         var aggregatedException: AggregateError = new AggregateError() 
-        if (config.ConnectedServiceName == undefined) {
-
-            valid = false 
-            aggregatedException.push(new Error(ConfigKeys!.ConnectedServiceName + ExceptionMessages.IsNull)) 
-        }
+        
         if (config.KVIdentityConfig == undefined) {
 
             valid = false 
