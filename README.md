@@ -33,11 +33,11 @@ The following are the detailed steps with embedded screenshots to provide additi
 
 - Click on Marketplace and search [Github Action - ](https://github.com/marketplace/actions)
 
-<img width="500" alt="Marketplace" src="Task/Docs/Resource/Marketplace.png">
+<img width="500" alt="marketplace screenshot" src="Task/Docs/Resource/Marketplace.png">
 
 - Copy the given snippet in your .yml file as shown below.
 
-<img width="500" alt="Marketplace" src="Task/Docs/Resource/GithubAction.png">
+<img width="500" alt="github marketplace screenshot" src="Task/Docs/Resource/GithubAction.png">
 
 ## 2. Create the App Registration in AAD
 
@@ -46,9 +46,9 @@ The following are the detailed steps with embedded screenshots to provide additi
 - Click on ‘+’ button as highlighted on the right and create a new App registration. 
 - You will need this application details in the next steps to enable service connection in the Github Action and to add this app to the access policies of the Azure key vault where the certificates reside. 
 
-<img width="500" heigth="100" alt="Marketplace" src="Task/Docs/Resource/Appreg1.png">
+<img width="500" heigth="100" alt="app registration screenshot" src="Task/Docs/Resource/Appreg1.png">
 
-<img width="500" alt="Marketplace" src="Task/Docs/Resource/Appreg2.png">
+<img width="500" alt="App registration screenshot" src="Task/Docs/Resource/appreg2.png">
 
 ## 3. Allowing App registration done in previous step to access the Azure key Vault 
 
@@ -57,9 +57,9 @@ The following are the detailed steps with embedded screenshots to provide additi
 - Find the section “Access Policies” and then click on ‘+ Access Policy’
 - Give limited permission to the App registered. Only requirement is to Get and List certificates as well as Get and List Secrets. 
 
-<img width="500" alt="Marketplace" src="Task/Docs/Resource/keyvault1.png">
+<img width="500" alt="Keyvault screenshot" src="Task/Docs/Resource/keyvault1.png">
 
-<img width="500" alt="Marketplace" src="Task/Docs/Resource/keyvault2.png">
+<img width="500" alt="Keyvault screenshot" src="Task/Docs/Resource/keyvault2.png">
 
 ## 4. a. Adding Github Secrets to enable the Service Connection.
 
@@ -71,7 +71,7 @@ The following are the detailed steps with embedded screenshots to provide additi
 - In Settings section go to secrets -> Action. Find “New repository secret”. Name your secret and add Value. 
 Select “Add Secret” to create the secret. 
 
-<img width="500" alt="Marketplace" src="Task/Docs/Resource/secret1.png">
+<img width="500" alt="github secrets screenshot" src="Task/Docs/Resource/secret1.png">
 
 - `KVAUTHCLIENT` (AAD APP ID): The App ID GUID you created for connecting to the AKV 
 - `KVAUTHSECRET` (AAD APP Secret) - This is the key you generated above (this expires in 2 years, and will need to be manually updated) 
@@ -80,7 +80,7 @@ Select “Add Secret” to create the secret.
 - `AUTHCERTNAME` (Auth Cert name in key vault) – Name by which the authentication certificate is stored in the AKV. 
 - `SIGNCERTNAME` (Sign Cert name in key vault) - Name by which the payload signing certificate is stored in the AKV. (For task to work as expected, keep the signing cert name the same as the client id on boarded to ESRP System, as it will be considered as the Client id equivalent) 
  
-<img width="500" alt="Marketplace" src="Task/Docs/Resource/secret2.png">
+<img width="500" alt="github secrets screenshot" src="Task/Docs/Resource/secret2.png">
 
 ## 4. b. Integrate the ESRP Package Release Github Action into your workflow 
  
