@@ -124,12 +124,12 @@ jobs:
             PackageLocation: "target/package"
             Owners: "xyz@microsoft.com"
             Approvers: "abc@microsoft.com"
-            ServiceEndpointUrl: "https://api.esrp.microsoft.com"
+            ServiceEndpointUrl: "https://abc.xyz.microsoft.com"
             MainPublisher: "EXAMPLE"
-            DomainTenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47"
+            DomainTenantId: "<guid/uuid>"
             ContentOrigin: "azeus"
             ProductState: "new"
-            Audience: "Workflow.A_S_AV_PackageManager"
+            Audience: "<workflow-name>"
             MavenCheck: "true"
 ```
 
