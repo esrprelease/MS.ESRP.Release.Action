@@ -118,8 +118,8 @@ class PackageManager {
                                 try {
                                     arr.push('\n' + localFileName);
                                     if (remoteCount === constants_1.Constant.TotalFilesInDirectory) {
-                                        console.log(constants_1.Constant.HashNotEqual + arr + '\n');
                                         console.log(constants_1.Constant.DeployedDiffContent);
+                                        console.log(constants_1.Constant.FileCheck + arr + '\n');
                                     }
                                 }
                                 catch (error) {
