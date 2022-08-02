@@ -31,7 +31,7 @@ If you have not completed the above, please go back and follow the instructions 
 The following are the detailed steps with embedded screenshots to provide additional clarification if required.  
 ## 1. Add the github Action 
 
-- Click on Marketplace and search [Github Action - ](https://github.com/marketplace/actions)
+- Click on Marketplace and search [ESRP Release Action ](https://github.com/marketplace/actions/esrp-release-action)
 
 <img width="500" alt="marketplace screenshot" src="Task/Docs/Resource/Marketplace.png">
 
@@ -91,13 +91,13 @@ In your yml file write the following input parameters under  `with: `.
 * `PackageLocation` – location where the package files exist. 
 * `Owners` - multiple owners can be added. 
 * `Approvers` - this feature is not available, and packages are auto approved. However minimum 1 approver is mandatory. 
-* `ServiceEndpointUrl` - https://login.microsoftonline.com
+* `ServiceEndpointUrl` - https://abc.xyz.microsoft.com
 * `MainPublisher` - auto populated field based on the client id <-> main publisher mapping.
 * `DomainTenantId` - add your tenant id.
 * `ContentOrigin` - value populated by default.
 * `ProductState` - add product state (New, Existing, Sustain).
 * `Audience` - auto populated field based on the content Type input field.
-* `MavenCheck` - flag input for further polling of package validation.
+* `MavenCheck` - flag input for file integrity.
  
 
 ``` yml 
@@ -123,12 +123,12 @@ jobs:
             PackageLocation: "target/package"
             Owners: "xyz@microsoft.com"
             Approvers: "abc@microsoft.com"
-            ServiceEndpointUrl: "https://api.esrp.microsoft.com"
+            ServiceEndpointUrl: "https://abc.xyz.microsoft.com"
             MainPublisher: "EXAMPLE"
-            DomainTenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47"
+            DomainTenantId: "<guid/uuid>"
             ContentOrigin: "azeus"
             ProductState: "new"
-            Audience: "Workflow.A_S_AV_PackageManager"
+            Audience: "<workflow-name>"
             MavenCheck: "true"
 ```
 
