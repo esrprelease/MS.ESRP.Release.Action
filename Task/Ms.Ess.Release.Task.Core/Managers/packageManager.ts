@@ -125,8 +125,9 @@ export class PackageManager{
                             try{
                                 arr.push('\n'+localFileName)
                                 if (remoteCount === Constant.TotalFilesInDirectory) {
-                                    console.log(Constant.HashNotEqual + arr + '\n')
                                     console.log(Constant.DeployedDiffContent)
+                                    console.log(Constant.FileCheck + arr + '\n')
+                                    
                                 }
                             }catch(error){
                                 throw error

@@ -78,17 +78,16 @@ Select “Add Secret” to create the secret.
 - `KVTENANTID` (ADD Application Tenant ID) – Tenant Id where the AKV resides. 
 - `KVNAME` (Key Vault name) – Where the Authentication & Signing certificate reside to communicate to ESRP system. 
 - `AUTHCERTNAME` (Auth Cert name in key vault) – Name by which the authentication certificate is stored in the AKV. 
-- `SIGNCERTNAME` (Sign Cert name in key vault) - Name by which the payload signing certificate is stored in the AKV. (For task to work as expected, keep the signing cert name the same as the client id on boarded to ESRP System, as it will be considered as the Client id equivalent) 
+- `SIGNCERTNAME` (Sign Cert name in key vault) - Name by which the payload signing certificate is stored in the AKV. (For action to work as expected, keep the signing cert name the same as the client id on boarded to ESRP System, as it will be considered as the Client id equivalent) 
  
 <img width="500" alt="github secrets screenshot" src="Task/Docs/Resource/secret2.png">
 
 ## 4. b. Integrate the ESRP Package Release Github Action into your workflow 
  
-- The assumption here is that you have most of the build defined and are simply adding the package release step​ into your workflow.    
-- In your yml file write the following input parameters under  `with: `. 
-- Search or scroll down to select the ESRP Package release task   
-* `Intent` - Intent for using this task. Ex: PackageDistribution.
-* `ContentType` – type of content in the payload files. Ex: Maven, NuGet, etc. 
+The assumption here is that you have most of the build defined and are simply adding the package release step​ into your workflow.    
+In your yml file write the following input parameters under  `with: `. 
+* `Intent` - Intent for using this action. Ex: PackageDistribution.
+* `ContentType` – type of content in the payload files. Ex: Maven. 
 * `PackageLocation` – location where the package files exist. 
 * `Owners` - multiple owners can be added. 
 * `Approvers` - this feature is not available, and packages are auto approved. However minimum 1 approver is mandatory. 
