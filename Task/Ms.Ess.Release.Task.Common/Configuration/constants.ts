@@ -66,7 +66,6 @@ export const Constant = {
     RepositoryUrl:"https://oss.sonatype.org/content/repositories/no-sync-releases/",
     UrlCheck: "Repository URL must be of a SonaType Nexus feed.",
     SuccessDeployed:"File integrity check successful. Artifacts are available in - \n",
-    PackageUrl: "You can visit and check deployed package - ",
     DeployedDiffContent:"File interity fail. \n",
     TotalFilesInDirectory: 16,
     HttpResponseCode:"Http reponse code:",

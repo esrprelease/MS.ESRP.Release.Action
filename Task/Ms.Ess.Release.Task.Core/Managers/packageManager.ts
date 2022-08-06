@@ -117,7 +117,7 @@ export class PackageManager{
                         if (remoteHash === localHash) {
                             matchCount++
                             if (remoteCount === Constant.TotalFilesInDirectory) {
-                                console.log(Constant.SuccessDeployed + "\n" + Constant.PackageUrl + packageUrl + "\n")
+                                console.log(Constant.SuccessDeployed + packageUrl + "\n")
                             }
                         }
 
