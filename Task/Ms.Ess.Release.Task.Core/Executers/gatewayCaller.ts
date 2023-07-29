@@ -38,9 +38,9 @@ export class GatewayCaller {
         request= await this.messageCreator!.PopulateReleaseRequestMessage(containerSas).then()
         
         console.log(Constant.GatewayRequestMessage)
-        request.version = Constant.VersionNumber2 
+        request.version = Constant.VersionNumber3 
     
-        var operationResponse = await releaseApi.releasePostRelease2Async(this.config!.ClientId!, Constant.VersionNumber2, request) 
+        var operationResponse = await releaseApi.releasePostRelease2Async(this.config!.ClientId!, Constant.VersionNumber3, request) 
     
         var operationId = operationResponse.body.operationId 
 
@@ -60,7 +60,7 @@ export class GatewayCaller {
 
             console.log(Constant.ReleaseDetailsFetchingMessage) 
             
-            var releaseResponse = await releaseApi.releaseGetReleaseDetailsByReleaseIdAsync(operationId?.toString() as string, this.config!.ClientId!, Constant.VersionNumber2) 
+            var releaseResponse = await releaseApi.releaseGetReleaseDetailsByReleaseIdAsync(operationId?.toString() as string, this.config!.ClientId!, Constant.VersionNumber3) 
             
             var responseStatus = releaseResponse.body.status 
 
