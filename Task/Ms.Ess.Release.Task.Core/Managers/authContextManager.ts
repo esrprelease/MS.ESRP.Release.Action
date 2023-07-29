@@ -34,7 +34,7 @@ export class AuthenticationManager implements IAuthenticationManager {
 
                     thumbprint: this.config!.AuthCertThumbprint!,
                     privateKey: this.config!.AuthPrivateKey!,
-                    x5c: this.SNIPinningFlag
+                    x5c: this.config!.AuthPublicCert!
                 }
             }
         } 
