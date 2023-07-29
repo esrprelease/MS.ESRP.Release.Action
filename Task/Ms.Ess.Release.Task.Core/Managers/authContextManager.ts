@@ -38,7 +38,7 @@ export class AuthenticationManager implements IAuthenticationManager {
                 }
             }
         } 
-        
+        console.log(authorityUrl);
         const cca = new Msal.ConfidentialClientApplication(clientConfig) 
         var gatewayScope = resourceUri + Constant.APIAccessDefaultScope 
         const clientCredentialRequest = {
