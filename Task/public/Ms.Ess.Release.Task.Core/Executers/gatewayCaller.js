@@ -61,8 +61,8 @@ class GatewayCaller {
             var request = new GatewayClient.MSEssGatewayClientContractsReleaseRequestReleaseRequestMessage;
             request = yield this.messageCreator.PopulateReleaseRequestMessage(containerSas).then();
             console.log(constants_1.Constant.GatewayRequestMessage);
-            request.version = constants_1.Constant.VersionNumber2;
-            var operationResponse = yield releaseApi.releasePostRelease2Async(this.config.ClientId, constants_1.Constant.VersionNumber2, request);
+            request.version = constants_1.Constant.VersionNumber3;
+            var operationResponse = yield releaseApi.releasePostRelease2Async(this.config.ClientId, constants_1.Constant.VersionNumber3, request);
             var operationId = operationResponse.body.operationId;
             console.log(constants_1.Constant.GatewayResponseMessage + operationId + '\n');
             return operationId;
@@ -78,7 +78,7 @@ class GatewayCaller {
             releaseApi.basePath = this.config.ServiceEndpointUrl;
             while (true) {
                 console.log(constants_1.Constant.ReleaseDetailsFetchingMessage);
-                var releaseResponse = yield releaseApi.releaseGetReleaseDetailsByReleaseIdAsync(operationId === null || operationId === void 0 ? void 0 : operationId.toString(), this.config.ClientId, constants_1.Constant.VersionNumber2);
+                var releaseResponse = yield releaseApi.releaseGetReleaseDetailsByReleaseIdAsync(operationId === null || operationId === void 0 ? void 0 : operationId.toString(), this.config.ClientId, constants_1.Constant.VersionNumber3);
                 var responseStatus = releaseResponse.body.status;
                 if (this.IsTerminalReached(responseStatus) == true) {
                     console.log(operationId + constants_1.Constant.HasReachedTerminalState + (responseStatus === null || responseStatus === void 0 ? void 0 : responseStatus.toString()) + '\n');

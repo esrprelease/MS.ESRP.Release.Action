@@ -23,6 +23,7 @@ export const Constant = {
     ConfigPopulatingSuccess: "Config Values Populated successfully. \n",
     GatewayRequestMessage: "ESRP Release Gateway Request Message Sent. \n",
     VersionNumber2: "2",
+    VersionNumber3: "3",
     GatewayResponseMessage: "ESRP Release Gateway Response Message Received with Operation Id - ",
     ReleaseDetailsFetchingMessage: "Executing GRD (Get Release Details) to fetch the latest Status of the Release. \n",
     HasReachedTerminalState: " has reached terminal state which is - ",
