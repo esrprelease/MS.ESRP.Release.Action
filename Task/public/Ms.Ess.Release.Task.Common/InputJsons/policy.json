@@ -1,8 +1,0 @@
-{
-    "version": "1.0.0",
-    "intent": "Product Release",
-    "contentType": "App",
-    "contentOrigin": "prz1",
-    "productState": "Current",
-    "audience": "Workflow.Default.WithArchival"
-}
